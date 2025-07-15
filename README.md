@@ -1,40 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Subly Admin Panel
 
-## Getting Started
+A modern, modular admin dashboard built with Next.js, React, and Tailwind CSS. This project is designed for flexibility, clean code, and easy extension—ideal for managing products, users, orders, and more.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- **Next.js 15** with file-based routing
+- **Component-based architecture** (generic, reusable tables & modals)
+- **Supabase** integration for backend data
+- **Authentication** with NextAuth.js
+- **React Query** for data fetching & caching
+- **Radix UI** for accessible dialogs, switches, etc.
+- **Tailwind CSS** for fast, responsive design
+- **Fully responsive** (mobile/tablet/desktop)
+- **Easy to extend**: add new resources, columns, or forms with minimal code
+
+---
+
+## 🛠️ Stack & Main Packages
+
+- `next`, `react`, `react-dom`
+- `@supabase/supabase-js` (API integration)
+- `@tanstack/react-query` (data fetching)
+- `@radix-ui/react-*` (UI primitives)
+- `tailwindcss`, `postcss`, `autoprefixer`
+- `next-auth` (authentication)
+- `sonner` (toasts/notifications)
+- `lucide-react` (icons)
+
+---
+
+## 📁 Folder Structure (Key Parts)
+
+```
+components/
+  Table/           # All generic table & modal components
+  ui/              # Low-level UI primitives (Button, Input, Dialog, ...)
+layouts/           # App layout wrappers
+pages/             # Next.js pages (dashboard, products, customers, ...)
+services/          # API & backend service functions
+styles/            # Tailwind/global CSS
+lib/               # Utility functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## ⚡ Getting Started
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/erfanmirasadi/SUBLY-admin-Page.git
+   cd SUBLY-admin-Page
+   ```
+2. **Install dependencies:**
+   ```bash
+   yarn install
+   # or npm install
+   ```
+3. **Configure environment variables:**
+   - Copy the following into a `.env` file at the root:
+     ```env
+     NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+     NEXT_PUBLIC_SUPABASE_KEY=your_supabase_key
+     # (Never commit real keys to public repos)
+     ```
+4. **Run the development server:**
+   ```bash
+   yarn dev
+   # or npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧩 Main Components & Usage
 
-## Learn More
+### Generic Table (`components/Table/GenericTable.jsx`)
 
-To learn more about Next.js, take a look at the following resources:
+A highly reusable table with built-in CRUD actions, pagination, and modals.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+**Example Usage:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```jsx
+import GenericTable from "@/components/Table/GenericTable";
+import { userColumns } from "./userColumns";
+import { userFormFields } from "./userFormFields";
+import useTableModalForm from "@/components/Table/useTableModalForm";
 
-## Deploy on Vercel
+const modalProps = useTableModalForm();
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<GenericTable
+  columns={userColumns}
+  data={users}
+  formFields={userFormFields}
+  modalProps={modalProps}
+  onSubmit={handleUserSubmit}
+  onDelete={handleUserDelete}
+  isLoading={isLoading}
+/>;
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- **columns**: Array of column definitions (see `/pages/*/userColumns.js`)
+- **formFields**: Array of form field configs (see `/pages/*/userFormFields.js`)
+- **modalProps**: Modal state/handlers from `useTableModalForm`
+
+### Generic Form Modal (`components/Table/GenericFormModal.jsx`)
+
+A flexible modal for add/edit forms, used inside the table but can be used standalone.
+
+**Props:**
+
+- `open`, `mode`, `initialValues`, `onClose`, `onSubmit`, `formFields`, ...
+
+---
+
+## 🏗️ How to Add a New Resource (e.g. Products)
+
+1. Define your columns: `pages/product/allProducts/productColumns.js`
+2. Define your form fields: `pages/product/allProducts/productFormFields.js`
+3. Use `<GenericTable ... />` in your page, pass the right props.
+4. (Optional) Add API service in `services/`
+
+---
+
+## 🧩 UI Primitives
+
+All low-level UI elements (Button, Input, Dialog, Spinner, etc.) are in `components/ui/` and are used throughout the app for consistency.
+
+---
+
+## 🔒 Security & Environment
+
+- **Never commit real API keys or secrets.** Use `.env` and add it to `.gitignore`.
+- All sensitive config (Supabase, Auth, etc.) is loaded from environment variables.
+
+---
+
+## 🧑‍💻 Contributing
+
+- Fork the repo, create a feature branch, and submit a pull request.
+- Please keep code modular and follow the existing component structure.
+- For new tables/resources, use the generic table/modal pattern.
+
+---
+
+## 📣 Contact
+
+For questions, suggestions, or issues, open an issue on GitHub or contact the maintainer.
+
+---
+
+Enjoy building with Subly Admin Panel!

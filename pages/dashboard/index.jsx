@@ -1,7 +1,10 @@
-import Layout from "@/components/Layout";
+import Layout from "@/layouts/Layout";
+import UserProfile from "@/components/UserProfile";
 
-function Dashboard() {
-  return <Layout>HELLO WORLD</Layout>;
+export default function Dashboard() {
+  return (
+    <Layout>
+      <UserProfile />
+    </Layout>
+  );
 }
-
-export default Dashboard;

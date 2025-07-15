@@ -1,16 +1,19 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useRef } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { toast } from "sonner";
+import { Spinner } from "@/components/ui/spinner";
 
 // ------------------------
 // Define the fields for Login and Sign Up modes
 // ------------------------
 const loginFields = [
-  { name: "usernameOrNumber", label: "Username or Number", type: "text" },
+  { name: "email", label: "ایمیل", type: "email" },
   {
     name: "password",
-    label: "Password",
+    label: "رمز عبور",
     type: "password",
     inputClassName: "font-bold",
   },
@@ -19,9 +22,19 @@ const loginFields = [
 // ------------------------
 // Main Component
 // ------------------------
-const Login = ({ onSubmit }) => {
+const Login = () => {
   const [formData, setFormData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const inputRefs = useRef({});
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  // اگر کاربر قبلاً login کرده باشد، به dashboard هدایت شود
+  React.useEffect(() => {
+    if (session) {
+      router.push("/dashboard");
+    }
+  }, [session, router]);
 
   // ------------------------
   // Track input value changes
@@ -56,9 +69,34 @@ const Login = ({ onSubmit }) => {
   // ------------------------
   // Handle form submit
   // ------------------------
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onSubmit(formData);
+
+    if (!formData.email || !formData.password) {
+      toast.error("لطفاً تمام فیلدها را پر کنید");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const result = await signIn("credentials", {
+        email: formData.email,
+        password: formData.password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        toast.error("ایمیل یا رمز عبور اشتباه است");
+      } else {
+        toast.success("ورود موفقیت‌آمیز بود");
+        router.push("/dashboard");
+      }
+    } catch (error) {
+      toast.error("خطا در ورود. لطفاً دوباره تلاش کنید");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -132,16 +170,22 @@ const Login = ({ onSubmit }) => {
           {/* ------------------------
               Submit Button
             ------------------------ */}
-          <Link href="/dashboard">
-            <div className="flex items-center justify-between mb-6">
-              <button
-                type="submit"
-                className="w-full px-6 py-3 tracking-wide uppercase text-[#f5f5f5] transition-colors duration-300 transform rounded-2xl bg-[#f5f5f5]/20 hover:bg-[#f5f5f5]/50 border-[#f5f5f5]/50 border-2 focus:outline-none focus:ring-2 focus:duration-500 focus:p-[12px] text-lg"
-              >
-                Login
-              </button>
-            </div>
-          </Link>
+          <div className="flex items-center justify-between mb-6">
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full px-6 py-3 tracking-wide uppercase text-[#f5f5f5] transition-colors duration-300 transform rounded-2xl bg-[#f5f5f5]/20 hover:bg-[#f5f5f5]/50 border-[#f5f5f5]/50 border-2 focus:outline-none focus:ring-2 focus:duration-500 focus:p-[12px] text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {isLoading ? (
+                <>
+                  <Spinner size="sm" className="text-white" />
+                  در حال ورود...
+                </>
+              ) : (
+                "ورود"
+              )}
+            </button>
+          </div>
         </form>
       </div>
     </div>

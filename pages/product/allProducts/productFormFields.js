@@ -1,0 +1,65 @@
+export const productFormFields = [
+  {
+    name: "title",
+    label: "عنوان",
+    required: true,
+    autoFocus: true,
+    placeholder: "نام محصول",
+  },
+  {
+    name: "caption",
+    label: "توضیح کوتاه",
+    required: false,
+    placeholder: "توضیح کوتاه محصول",
+  },
+  {
+    name: "category_id",
+    label: "دسته‌بندی",
+    required: true,
+    placeholder: "دسته‌بندی محصول",
+    type: "select",
+    optionsKey: "categoryOptions",
+  },
+  {
+    name: "company_id",
+    label: "شرکت",
+    required: true,
+    placeholder: "شرکت سازنده",
+    type: "select",
+    optionsKey: "companyOptions",
+  },
+  {
+    name: "type",
+    label: "نوع",
+    required: false,
+    placeholder: "نوع محصول",
+  },
+  {
+    name: "image_small_url",
+    label: "تصویر کوچک",
+    type: "file",
+  },
+  {
+    name: "image_big_url",
+    label: "تصویر بزرگ",
+    type: "file",
+  },
+  {
+    name: "explanation",
+    label: "توضیح کامل",
+    required: false,
+    placeholder: "توضیح کامل محصول",
+    type: "textarea",
+  },
+  {
+    name: "id",
+    label: "شناسه",
+    readOnly: true,
+    entity: "product",
+  },
+  {
+    name: "created_at",
+    label: "تاریخ ایجاد",
+    readOnly: true,
+  },
+];

@@ -16,13 +16,9 @@ export default function Home() {
   return (
     <LoginLayout>
       <div className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Login
-          onSubmit={(data) => {
-            // handle login
-            console.log(data);
-          }}
-        />
+        <Login />
       </div>
     </LoginLayout>
   );
 }
+``;

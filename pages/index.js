@@ -11,6 +11,10 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+export const metadata = {
+  title: "SUBLY-ADMIN",
+  description: "Digital subscription",
+};
 
 export default function Home() {
   return (

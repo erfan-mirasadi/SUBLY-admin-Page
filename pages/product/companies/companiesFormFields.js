@@ -13,5 +13,12 @@ export const companiesFormFields = [
   { name: "features", label: "ویژگی ها", placeholder: "ویژگی ها" },
   { name: "image_url", label: "تصویر", type: "file" },
   { name: "video_url", label: "ویدیو", type: "file" },
+  {
+    name: "slug",
+    label: "slug",
+    placeholder: "slug",
+    required: true,
+    unique: true,
+  },
   { name: "created_at", label: "تاریخ ایجاد", readOnly: true },
 ];

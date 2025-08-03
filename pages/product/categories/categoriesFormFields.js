@@ -11,6 +11,13 @@ export const categoriesFormFields = [
   },
   { name: "description", label: "توضیحات", placeholder: "توضیحات" },
   { name: "features", label: "ویژگی ها", placeholder: "ویژگی ها" },
+  {
+    name: "slug",
+    label: "slug",
+    placeholder: "slug",
+    required: true,
+    unique: true,
+  },
   { name: "image_url", label: "تصویر", type: "file" },
   { name: "video_url", label: "ویدیو", type: "file" },
   { name: "created_at", label: "تاریخ ایجاد", readOnly: true },

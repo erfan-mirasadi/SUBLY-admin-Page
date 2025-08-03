@@ -48,7 +48,6 @@ const ProductsPage = () => {
     queryKey: ["product"],
     queryFn: getApiProducts,
   });
-  console.log("products data:", data);
 
   const { data: categories = [] } = useQuery({
     queryKey: ["category"],

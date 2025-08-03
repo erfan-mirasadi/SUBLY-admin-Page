@@ -2,7 +2,6 @@ import supabase from "./supabase";
 
 export async function getApiCoupons() {
   const { data, error } = await supabase.from("coupons").select("*");
-  console.log(data);
   if (error) {
     console.error("Error fetching coupons:", error);
   }

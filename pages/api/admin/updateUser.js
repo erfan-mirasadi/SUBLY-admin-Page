@@ -7,7 +7,6 @@ const supabase = createClient(
 );
 
 export default async function handler(req, res) {
-  console.log("KEY:", process.env.SUPABASE_SERVICE_ROLE_KEY);
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -15,10 +14,7 @@ export default async function handler(req, res) {
   try {
     const { userId, email, name } = req.body;
 
-    console.log("Received data:", { userId, email, name });
-
     if (!name) {
-      console.log("Missing fields:", { name: !!name });
       return res.status(400).json({
         error: "Missing required field: name",
         received: { userId, email, name },
@@ -38,7 +34,6 @@ export default async function handler(req, res) {
       if (authError) {
         console.error("Auth update error:", authError);
         // اگر خطا در auth بود، ادامه بده و فقط در جدول user آپدیت کن
-        console.log("Continuing with user table update only");
       } else {
         authData = auth;
       }
@@ -57,8 +52,6 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: userError.message });
     }
     userData = user;
-
-    console.log("Update successful:", { authData, userData });
 
     return res.status(200).json({
       success: true,

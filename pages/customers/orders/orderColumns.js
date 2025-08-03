@@ -1,7 +1,12 @@
 export const orderColumns = [
+  {
+    accessorKey: "id",
+    header: "شناسه سفارش",
+    cell: ({ row }) => (
+      <div className="text-center font-medium">#{row.original.id}</div>
+    ),
+  },
   { accessorKey: "user_name", header: "کاربر" },
-  { accessorKey: "product_title", header: "محصول" },
-  { accessorKey: "quantity", header: "تعداد" },
   { accessorKey: "unit_price", header: "قیمت واحد" },
   { accessorKey: "total_price", header: "قیمت کل" },
   { accessorKey: "discount_code", header: "کد تخفیف" },

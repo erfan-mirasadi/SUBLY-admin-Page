@@ -26,6 +26,7 @@ export const categoriesColumns = [
       );
     },
   },
+  { accessorKey: "slug", header: "slug" },
   {
     accessorKey: "created_at",
     header: "تاریخ ایجاد",

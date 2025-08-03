@@ -2,7 +2,6 @@ import supabase from "./supabase";
 
 export async function getApiProductEntry() {
   const { data, error } = await supabase.from("product_entry").select("*");
-  console.log(data);
   if (error) {
     console.error("Error fetching products Entry:", error);
   }

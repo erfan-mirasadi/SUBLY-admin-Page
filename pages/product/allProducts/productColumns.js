@@ -5,6 +5,7 @@ export const productColumns = [
   { accessorKey: "category_title", header: "دسته‌بندی" },
   { accessorKey: "company_title", header: "شرکت" },
   { accessorKey: "type", header: "نوع" },
+  { accessorKey: "slug", header: "SLUG" },
   {
     accessorKey: "image_small_url",
     header: "تصویر کوچک",

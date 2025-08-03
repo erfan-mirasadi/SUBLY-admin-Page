@@ -5,9 +5,12 @@
 export const userColumns = [
   { accessorKey: "name", header: "نام" },
   { accessorKey: "last_name", header: "نام خانوادگی" },
-  { accessorKey: "phone_number", header: "شماره تماس" },
+  { accessorKey: "phone", header: "شماره تماس" },
   { accessorKey: "discount_code", header: "کد تخفیف" },
   { accessorKey: "last_order_id", header: "آخرین سفارش" },
+  { accessorKey: "oto_code", header: "oto code" },
+  { accessorKey: "is_verified", header: "is verified" },
+  { accessorKey: "otp_expires_at", header: "تاریخ انقضای OTP" },
   {
     accessorKey: "created_at",
     header: "تاریخ ایجاد",

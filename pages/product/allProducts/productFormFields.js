@@ -35,6 +35,12 @@ export const productFormFields = [
     placeholder: "نوع محصول",
   },
   {
+    name: "slug",
+    label: "SLUG",
+    required: true,
+    placeholder: "SLOG",
+  },
+  {
     name: "image_small_url",
     label: "تصویر کوچک",
     type: "file",

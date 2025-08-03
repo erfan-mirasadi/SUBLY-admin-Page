@@ -1,7 +1,18 @@
 import supabase from "./supabase";
 
 export async function getApiOrders() {
-  const { data, error } = await supabase.from("order").select("*");
+  const { data, error } = await supabase.from("order").select(`
+      *,
+      order_items (
+        id,
+        quantity,
+        unit_price,
+        discount_price,
+        total_price,
+        plan_id,
+        created_at
+      )
+    `);
   if (error) {
     console.error("Error fetching order:", error);
   }

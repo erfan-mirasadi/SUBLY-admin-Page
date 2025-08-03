@@ -18,7 +18,6 @@ export default function UserProfile() {
   // بارگذاری اطلاعات کاربر
   useEffect(() => {
     if (session?.user) {
-      console.log("Session user data:", session.user);
       setFormData((prev) => ({
         ...prev,
         name: session.user.name || "",
@@ -60,12 +59,6 @@ export default function UserProfile() {
     try {
       // پیدا کردن userId از session (اختیاری)
       const userId = session.user.id || session.user.sub;
-
-      console.log("Sending data:", {
-        userId: userId || "not provided",
-        email: formData.email,
-        name: formData.name,
-      });
 
       // استفاده از API endpoint جدید
       const response = await fetch("/api/admin/updateUser", {

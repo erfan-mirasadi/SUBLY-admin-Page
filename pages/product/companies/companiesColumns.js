@@ -30,6 +30,7 @@ export const companiesColumns = [
       );
     },
   },
+  { accessorKey: "slug", header: "slug" },
   {
     accessorKey: "created_at",
     header: "تاریخ ایجاد",

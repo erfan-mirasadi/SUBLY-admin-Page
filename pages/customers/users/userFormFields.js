@@ -15,7 +15,7 @@ export const userFormFields = [
     placeholder: "نام خانوادگی کاربر",
   },
   {
-    name: "phone_number",
+    name: "phone",
     label: "شماره تماس",
     required: true,
     placeholder: "مثال: 09123456789",

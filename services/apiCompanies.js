@@ -2,7 +2,6 @@ import supabase from "./supabase";
 
 export async function getApiCompanies() {
   const { data, error } = await supabase.from("company").select("*");
-  console.log(data);
   if (error) {
     console.error("Error fetching companies:", error);
   }

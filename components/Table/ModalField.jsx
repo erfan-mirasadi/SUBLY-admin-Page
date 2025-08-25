@@ -33,7 +33,11 @@ export default function ModalField({
       />
     );
   }
-  if (field.name === "description" || field.name === "caption") {
+  if (
+    field.name === "description" ||
+    field.name === "caption" ||
+    field.name === "explanation"
+  ) {
     return (
       <textarea
         name={field.name}
@@ -42,7 +46,11 @@ export default function ModalField({
         placeholder={field.placeholder || ""}
         required={field.required}
         disabled={isDisabled}
-        className={`w-full min-h-[80px] sm:min-h-[100px] max-h-60 resize-y rounded-xl border-2 p-2 sm:p-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all text-gray-800 placeholder-gray-600 ${
+        className={`w-full ${
+          field.name === "explanation"
+            ? "min-h-[120px] sm:min-h-[150px]"
+            : "min-h-[80px] sm:min-h-[100px]"
+        } max-h-80 resize-y rounded-xl border-2 p-2 sm:p-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all text-gray-800 placeholder-gray-600 ${
           isDisabled
             ? "opacity-50 cursor-not-allowed bg-gray-100"
             : "bg-white hover:border-amber-300"
@@ -208,6 +216,27 @@ export default function ModalField({
       </div>
     );
   }
+
+  // Generic textarea handler
+  if (field.type === "textarea") {
+    return (
+      <textarea
+        name={field.name}
+        value={value || ""}
+        onChange={onChange}
+        placeholder={field.placeholder || ""}
+        required={field.required}
+        disabled={isDisabled}
+        className={`w-full min-h-[120px] sm:min-h-[150px] max-h-80 resize-y rounded-xl border-2 p-2 sm:p-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all text-gray-800 placeholder-gray-600 ${
+          isDisabled
+            ? "opacity-50 cursor-not-allowed bg-gray-100"
+            : "bg-white hover:border-amber-300"
+        }`}
+        style={{ fontFamily: "inherit" }}
+      />
+    );
+  }
+
   // Default input
   return (
     <Input

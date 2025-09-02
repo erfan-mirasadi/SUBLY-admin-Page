@@ -22,6 +22,12 @@ export const productPlanFormFields = [
     defaultValue: null,
   },
   {
+    name: "is_available",
+    label: "موجودی محصول",
+    type: "switch",
+    required: false,
+  },
+  {
     name: "discount_price",
     label: "قیمت تخفیف‌خورده",
     required: false,

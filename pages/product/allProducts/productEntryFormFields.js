@@ -13,6 +13,18 @@ export const productEntryFormFields = [
     placeholder: "ویژگی‌ها",
   },
   { name: "region", label: "منطقه", required: false, placeholder: "منطقه" },
+  {
+    name: "info",
+    label: "اطلاعات پلن",
+    required: false,
+    placeholder: "اطلاعات مخصوص این پلن را وارد کنید...",
+  },
+  {
+    name: "need_login",
+    label: "نیاز به اطلاعات یوزر دارد؟",
+    type: "switch",
+    required: false,
+  },
   // { name: "product_id", label: "شناسه محصول", required: true, type: "hidden" },
   // {
   //   name: "product_id",

@@ -46,4 +46,23 @@ export const orderItemsFormFields = [
     required: false,
     placeholder: "شناسه پلن را وارد کنید (اختیاری)",
   },
+  {
+    name: "user_name",
+    label: "نام کاربری",
+    required: false,
+    placeholder: "نام کاربری را وارد کنید",
+  },
+  {
+    name: "password",
+    label: "رمز عبور",
+    type: "password",
+    required: false,
+    placeholder: "رمز عبور را وارد کنید",
+  },
+  {
+    name: "description",
+    label: "توضیحات",
+    required: false,
+    placeholder: "توضیحات مربوط به این آیتم را وارد کنید...",
+  },
 ];

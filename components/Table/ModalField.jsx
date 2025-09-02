@@ -36,7 +36,8 @@ export default function ModalField({
   if (
     field.name === "description" ||
     field.name === "caption" ||
-    field.name === "explanation"
+    field.name === "explanation" ||
+    field.name === "info"
   ) {
     return (
       <textarea
@@ -49,6 +50,8 @@ export default function ModalField({
         className={`w-full ${
           field.name === "explanation"
             ? "min-h-[120px] sm:min-h-[150px]"
+            : field.name === "info"
+            ? "min-h-[100px] sm:min-h-[120px]"
             : "min-h-[80px] sm:min-h-[100px]"
         } max-h-80 resize-y rounded-xl border-2 p-2 sm:p-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all text-gray-800 placeholder-gray-600 ${
           isDisabled

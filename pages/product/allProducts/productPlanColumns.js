@@ -5,6 +5,21 @@ export const productPlanColumns = [
   { accessorKey: "discount_price", header: "قیمت تخفیف‌خورده" },
   { accessorKey: "state", header: "وضعیت" },
   {
+    accessorKey: "is_available",
+    header: "موجودی",
+    cell: ({ row }) => (
+      <span
+        className={`px-3 py-1 rounded-full text-xs font-medium ${
+          row.original.is_available
+            ? "bg-green-100 text-green-800"
+            : "bg-red-100 text-red-800"
+        }`}
+      >
+        {row.original.is_available ? "موجود" : "ناموجود"}
+      </span>
+    ),
+  },
+  {
     accessorKey: "created_at",
     header: "تاریخ ایجاد",
     cell: ({ row }) =>

@@ -15,6 +15,7 @@ export const orderColumns = [
   { accessorKey: "payment_status", header: "وضعیت پرداخت" },
   { accessorKey: "payment_gateway", header: "درگاه پرداخت" },
   { accessorKey: "paid_at", header: "تاریخ پرداخت" },
+  { accessorKey: "telegram_info", header: "اطلاعات تلگرام" },
   {
     accessorKey: "created_at",
     header: "تاریخ ایجاد",

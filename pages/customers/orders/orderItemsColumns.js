@@ -69,42 +69,32 @@ export const orderItemsColumns = [
       </div>
     ),
   },
-  {
-    accessorKey: "plan_id",
-    header: "شناسه پلن",
-    cell: ({ row }) => (
-      <div className="text-center">{row.original.plan_id || "ندارد"}</div>
-    ),
-  },
+  // {
+  //   accessorKey: "plan_id",
+  //   header: "شناسه پلن",
+  //   cell: ({ row }) => (
+  //     <div className="text-center">{row.original.plan_id || "ندارد"}</div>
+  //   ),
+  // },
   {
     accessorKey: "user_name",
     header: "نام کاربری",
-    cell: ({ row }) => (
-      <div className="text-center font-medium">
-        {row.original.user_name || "-"}
-      </div>
-    ),
   },
   {
     accessorKey: "password",
     header: "رمز عبور",
-    cell: ({ row }) => (
-      <div className="text-center">
-        {row.original.password ? "••••••••" : "-"}
-      </div>
-    ),
   },
   {
     accessorKey: "description",
     header: "توضیحات",
-    cell: ({ row }) => (
-      <div
-        className="text-center max-w-32 truncate"
-        title={row.original.description}
-      >
-        {row.original.description || "-"}
-      </div>
-    ),
+    // cell: ({ row }) => (
+    //   <div
+    //     className="text-center max-w-32 truncate"
+    //     title={row.original.description}
+    //   >
+    //     {row.original.description || "-"}
+    //   </div>
+    // ),
   },
   {
     accessorKey: "created_at",

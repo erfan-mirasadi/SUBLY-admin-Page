@@ -59,6 +59,11 @@ export const orderFormFields = [
     placeholder: "تاریخ پرداخت",
   },
   {
+    name: "telegram_info",
+    label: "اطلاعات تلگرام",
+    placeholder: "اطلاعات تلگرام",
+  },
+  {
     name: "created_at",
     label: "تاریخ ایجاد",
     readOnly: true,

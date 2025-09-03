@@ -10,6 +10,9 @@ export async function getApiOrders() {
         discount_price,
         total_price,
         plan_id,
+        user_name,
+        password,
+        description,
         created_at
       )
     `);

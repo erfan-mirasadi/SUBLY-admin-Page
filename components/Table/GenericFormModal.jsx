@@ -106,7 +106,7 @@ export default function GenericFormModal({
   return createPortal(
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
-      onClick={onClose}
+      // onClick={onClose} // کامنت شده: تا modal با کلیک بیرون بسته نشه
     >
       <div
         className="w-full max-w-4xl bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl shadow-2xl p-4 sm:p-6 lg:p-8 mx-auto my-4 flex flex-col gap-4 sm:gap-6 max-h-[95vh] overflow-y-auto border border-amber-200"

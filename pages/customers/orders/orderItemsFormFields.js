@@ -55,7 +55,6 @@ export const orderItemsFormFields = [
   {
     name: "password",
     label: "رمز عبور",
-    type: "password",
     required: false,
     placeholder: "رمز عبور را وارد کنید",
   },

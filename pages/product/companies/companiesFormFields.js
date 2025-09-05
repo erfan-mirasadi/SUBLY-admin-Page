@@ -10,8 +10,18 @@ export const companiesFormFields = [
     placeholder: "عنوان",
   },
   { name: "description", label: "توضیحات", placeholder: "توضیحات" },
-  { name: "features", label: "ویژگی ها", placeholder: "ویژگی ها" },
+  {
+    name: "caption",
+    label: "عنوان کوتاه",
+    placeholder: "عنوان کوتاه یا زیرنویس",
+  },
+  {
+    name: "features",
+    label: "محصولات",
+    placeholder: "لیست محصولات و خدمات این شرکت را شرح دهید...",
+  },
   { name: "image_url", label: "تصویر", type: "file" },
+  { name: "image_2", label: "تصویر ۲", type: "file" },
   { name: "video_url", label: "ویدیو", type: "file" },
   {
     name: "slug",

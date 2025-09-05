@@ -4,10 +4,28 @@ export const categoriesColumns = [
   { accessorKey: "description", header: "توضیحات" },
   { accessorKey: "features", header: "ویژگی ها" },
   {
+    accessorKey: "caption",
+    header: "عنوان کوتاه",
+    cell: ({ row }) => (
+      <div className="max-w-32 truncate" title={row.original.caption}>
+        {row.original.caption || "-"}
+      </div>
+    ),
+  },
+  {
     accessorKey: "image_url",
     header: "تصویر",
     cell: ({ row }) => {
       const url = row?.original?.image_url;
+      if (!url) return "-";
+      return <img src={url} className="w-16 h-16 object-cover rounded" />;
+    },
+  },
+  {
+    accessorKey: "image_2",
+    header: "تصویر ۲",
+    cell: ({ row }) => {
+      const url = row?.original?.image_1;
       if (!url) return "-";
       return <img src={url} className="w-16 h-16 object-cover rounded" />;
     },

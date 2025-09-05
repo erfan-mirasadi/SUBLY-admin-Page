@@ -2,8 +2,11 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="fa" dir="rtl">
       <Head>
+        <title>پنل ادمین</title>
+        <meta name="description" content="پنل مدیریت محتوای سابلی" />
+        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -15,7 +18,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="antialiased font-vazir">
+      <body className="antialiased font-vazirmatn">
         <Main />
         <NextScript />
       </body>

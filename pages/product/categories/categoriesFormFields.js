@@ -10,7 +10,16 @@ export const categoriesFormFields = [
     placeholder: "عنوان",
   },
   { name: "description", label: "توضیحات", placeholder: "توضیحات" },
-  { name: "features", label: "ویژگی ها", placeholder: "ویژگی ها" },
+  {
+    name: "caption",
+    label: "عنوان کوتاه",
+    placeholder: "عنوان کوتاه یا زیرنویس",
+  },
+  {
+    name: "features",
+    label: "ویژگی‌ها",
+    placeholder: "ویژگی‌ها و مشخصات این دسته‌بندی را شرح دهید...",
+  },
   {
     name: "slug",
     label: "slug",
@@ -19,6 +28,7 @@ export const categoriesFormFields = [
     unique: true,
   },
   { name: "image_url", label: "تصویر", type: "file" },
+  { name: "image_2", label: "تصویر ۲", type: "file" },
   { name: "video_url", label: "ویدیو", type: "file" },
   { name: "created_at", label: "تاریخ ایجاد", readOnly: true },
 ];

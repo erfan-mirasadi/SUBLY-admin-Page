@@ -15,7 +15,7 @@ export const productFormFields = [
   {
     name: "category_id",
     label: "دسته‌بندی",
-    required: true,
+    required: false,
     placeholder: "دسته‌بندی محصول",
     type: "select",
     optionsKey: "categoryOptions",
@@ -23,7 +23,7 @@ export const productFormFields = [
   {
     name: "company_id",
     label: "شرکت",
-    required: true,
+    required: false,
     placeholder: "شرکت سازنده",
     type: "select",
     optionsKey: "companyOptions",

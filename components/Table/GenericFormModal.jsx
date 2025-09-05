@@ -91,7 +91,9 @@ export default function GenericFormModal({
           if (
             (value === "" || value === undefined) &&
             fieldDef &&
-            (fieldDef.type === "number" || fieldDef.type === "integer")
+            (fieldDef.type === "number" ||
+              fieldDef.type === "integer" ||
+              fieldDef.type === "select")
           ) {
             return [key, null];
           }
